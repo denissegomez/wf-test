@@ -1,0 +1,24 @@
+{
+  "name": "wf-test",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha 2-API"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/denissegomez/wf-test.git"
+  },
+  "author": "Denisse Gomez",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/denissegomez/wf-test/issues"
+  },
+  "homepage": "https://github.com/denissegomez/wf-test#readme",
+  "dependencies": {
+    "axios": "^0.21.0",
+    "chai": "^4.2.0",
+    "mocha": "^8.2.0"
+  }
+}
