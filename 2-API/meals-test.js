@@ -24,4 +24,17 @@ describe("Categories", function(){
             done();
         });
     });
+
+    it("GET/ Last category meals should return one meal", function(done){
+        axios.get(categoriesURL).then(function(response){
+            const categories = getCategoriesFromResponse(response);
+            const goatCategory = categories[categories.length - 1];
+            
+            return axios.get("https://www.themealdb.com/api/json/v1/1/filter.php?c=" + goatCategory.strCategory).then(function(response){
+                const meals = response.data.meals;
+                meals.length.should.equal(1);
+                done();
+            });
+        });
+    });
 })
