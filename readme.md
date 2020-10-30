@@ -24,7 +24,7 @@ npm test
 Tests will be executed and the result shown in the console.
 
 ## UI Tests
-The UI tests can be found in side the `3-UI`folder. They were done using Selenium Webdriver + Protractor. To run them locally, you will need to install Protractor, update the Webdriver Manager, and start it to run the server locally.
+The UI tests can be found in side the `3-UI` folder. They were done using Selenium Webdriver + Protractor. To run them locally, you will need to install Protractor, update the Webdriver Manager, and start it to run the server locally.
 
 ```
 npm install -g protractor
