@@ -38,6 +38,14 @@ describe("Categories", function(){
             });
         });
     });
+
+    it("GET/ Wine category should not return results", function(done){
+        axios.get(filtersURL + "c=wine").then(function(response){
+            const meals = response.data.meals;
+            should.not.exist(meals);
+            done();
+        });
+    });
 })
 
 describe("Filters", function(){
