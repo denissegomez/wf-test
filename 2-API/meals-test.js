@@ -55,6 +55,15 @@ describe("Filters", function(){
             const meals = response.data.meals;
             const someWithoutThumbnail = meals.some(meal => meal.strMealThumb == "");
             someWithoutThumbnail.should.equal(false);
-        })
+            done();
+        });
+    });
+
+    it("GET/ By apple ingredient should return no result", function(done){
+        axios.get(filtersURL + "i=apple").then(function(response){
+            const meals = response.data.meals;
+            should.not.exist(meals);
+            done();
+        });
     });
 });
