@@ -31,5 +31,8 @@ describe('Lego tests', function(){
         const filteredProducts = filteredProductsContainer.all(by.tagName('li'));
         
         expect(filteredProducts.count()).toEqual(3);
+        
+        const labels = filteredProducts.all(by.tagName('h2'))
+        expect(labels.getText()).toEqual(['Llavero con linterna de Darth Vader™ LEGO® Star Wars™', 'Llavero con luz de Stormtrooper™ LEGO® Star Wars™', 'Llavero con luz de ladrillo 1x2 LEGO® (Rojo)']);
     })
 })
