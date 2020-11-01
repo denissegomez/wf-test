@@ -1,5 +1,3 @@
-const { expect } = require("chai");
-
 describe('Lego tests', function(){
     it('It should return 3 results', function(){
         
@@ -22,9 +20,16 @@ describe('Lego tests', function(){
         element(by.xpath('//*[@id="bltb9d6f2110f37ddd5"]/div/div[2]/ul/li[2]/a/div/div/picture/img')).click();
 
 
-        const keychainFilter = element(by.xpath('//*[@id="blt0723e5915b29f00d"]/section/div/aside/div/div/div[2]/div/div/div/ul/li[6]'));
+        const keychainFilter = element(by.xpath('//*[@id="blt0723e5915b29f00d"]/section/div/aside/div/div/div[2]/div/div/div/ul/li[9]'));
         browser.wait(until.presenceOf(keychainFilter), 5000);
         keychainFilter.click();
+        
         element(by.xpath('//*[@id="blt0723e5915b29f00d"]/section/div/aside/div/div/div[3]/div/div/div/ul/li')).click();
+
+        const filteredProductsContainer = element(by.css('.ProductGridstyles__Grid-lc2zkx-0'))
+        browser.wait(until.presenceOf(filteredProductsContainer), 5000);
+        const filteredProducts = filteredProductsContainer.all(by.tagName('li'));
+        
+        expect(filteredProducts.count()).toEqual(3);
     })
 })
