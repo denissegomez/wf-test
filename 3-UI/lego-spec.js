@@ -1,6 +1,6 @@
 const homePage = require('./pages/home');
 const categoriesPage = require('./pages/categories');
-const home = require('./pages/home');
+const productPage = require('./pages/product');
 
 describe('Lego Site', function(){
 
@@ -33,20 +33,17 @@ describe('Lego Site', function(){
         const until = protractor.ExpectedConditions;
         
         const expectedProductURL = 'https://www.lego.com/es-es/product/lego-ludo-game-40198';
+        const cartURL = 'https://www.lego.com/es-es/cart';
 
         homePage.get();
         homePage.search('Ludo lego');        
         expect(browser.getCurrentUrl()).toEqual(expectedProductURL);
 
-        const addItem = element(by.xpath('//*[@id="main-content"]/div/div[2]/div/div/div[2]/div[4]/div[1]/button[2]'));
-        browser.wait(until.presenceOf(addItem), 5000);
-        addItem.click();
+        productPage.incrementNumberOfItems();
+        productPage.addToCart();
+        productPage.goToCart();
 
-        element(by.xpath('//*[@id="main-content"]/div/div[2]/div/div/div[2]/div[5]/div[1]/div/div/div/button')).click();
-
-        element(by.xpath('//*[@id="root"]/div/div[2]/header/div/div[1]/nav/ul[2]/li[3]/a')).click();
-
-        expect(browser.getCurrentUrl()).toEqual('https://www.lego.com/es-es/cart');
+        expect(browser.getCurrentUrl()).toEqual(cartURL);
 
         const totalAmountLabel = element(by.xpath('//*[@id="main-content"]/div/div[1]/div[2]/div[1]/div/div[2]/div[1]/div[1]/div/div[3]/div[1]/span/span'));
         browser.wait(until.presenceOf(totalAmountLabel), 5000);

@@ -8,9 +8,7 @@ var HomePage = function() {
 
     const searchButton = element(by.xpath('//*[@id="root"]/div/div[2]/header/div/div[2]/div/div/button'));
     const searchInput = element(by.xpath('//*[@id="desktop-search-search-input"]'));
-    
     const searchSuggestion = element(by.xpath('//*[@id="desktop-search-search-suggestions"]/li[2]/a/div'));
-
 
     const until = protractor.ExpectedConditions;
     const timeoutInterval = 5000;
@@ -28,18 +26,16 @@ var HomePage = function() {
         menuAgeButton.click();
     }
 
-    this.filterBy3To5Years = function () {
+    this.filterBy3To5Years = function() {
         threeToFiveOption.click();
     }
 
-    this.search = function(searchTearm){
+    this.search = function(searchTearm) {
         searchButton.click();
         searchInput.sendKeys(searchTearm);
-        browser.wait(until.presenceOf(suggestion), timeoutInterval);
-        suggestion.click();
+        browser.wait(until.presenceOf(searchSuggestion), timeoutInterval);
+        searchSuggestion.click();
     }
-
-
 }
 
 module.exports = new HomePage();
