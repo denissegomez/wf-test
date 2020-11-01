@@ -38,3 +38,5 @@ Now you should be able to run the tests by using the command below in your termi
 ```
 protractor 3-UI/conf.js
 ```
+
+Please consider that tests were done for desktop version and also that this is my first time with Protractor, as I usually use Selenium with C# :)
