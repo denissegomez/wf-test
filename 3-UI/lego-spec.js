@@ -14,10 +14,17 @@ describe('Lego tests', function(){
         if (continueButton) {
             continueButton.click();
         }
+        
+        element(by.xpath('//*[@id="root"]/div/div[3]/div/div[2]/button')).click();
 
         element(by.xpath('//*[@id="root"]/div/div[2]/header/div/div[2]/div/nav/ul/li[2]/button')).click();
         element(by.xpath('//*[@id="bltb9d6f2110f37ddd5"]/div/div[1]/button[3]')).click();
         element(by.xpath('//*[@id="bltb9d6f2110f37ddd5"]/div/div[2]/ul/li[2]/a/div/div/picture/img')).click();
 
+
+        const keychainFilter = element(by.xpath('//*[@id="blt0723e5915b29f00d"]/section/div/aside/div/div/div[2]/div/div/div/ul/li[6]'));
+        browser.wait(until.presenceOf(keychainFilter), 5000);
+        keychainFilter.click();
+        element(by.xpath('//*[@id="blt0723e5915b29f00d"]/section/div/aside/div/div/div[3]/div/div/div/ul/li')).click();
     })
 })
