@@ -1,4 +1,4 @@
-describe('Lego tests', function(){
+describe('Lego Site', function(){
 
     beforeEach(function() {
         browser.ignoreSynchronization = true;
@@ -39,7 +39,7 @@ describe('Lego tests', function(){
     //     expect(labels.getText()).toEqual(['Llavero con linterna de Darth Vader™ LEGO® Star Wars™', 'Llavero con luz de Stormtrooper™ LEGO® Star Wars™', 'Llavero con luz de ladrillo 1x2 LEGO® (Rojo)']);
     // });
 
-    it('There should be 2 LEGO items in the cart', function(){
+    it('Should show the right price in the cart', function(){
         browser.driver.get("https://www.lego.com/es-es");
 
         const until = protractor.ExpectedConditions;
@@ -53,7 +53,7 @@ describe('Lego tests', function(){
         element(by.xpath('//*[@id="root"]/div/div[2]/header/div/div[2]/div/div/button')).click();
         element(by.xpath('//*[@id="desktop-search-search-input"]')).sendKeys('Ludo lego');
 
-        const suggestion = element(by.xpath('//*[@id="desktop-search-search-suggestions"]/li[2]'));
+        const suggestion = element(by.xpath('//*[@id="desktop-search-search-suggestions"]/li[2]/a/div'));
         browser.wait(until.presenceOf(suggestion), 5000);
         suggestion.click();
 
@@ -63,5 +63,14 @@ describe('Lego tests', function(){
         browser.wait(until.presenceOf(addItem), 5000);
         addItem.click();
 
+        element(by.xpath('//*[@id="main-content"]/div/div[2]/div/div/div[2]/div[5]/div[1]/div/div/div/button')).click();
+
+        element(by.xpath('//*[@id="root"]/div/div[2]/header/div/div[1]/nav/ul[2]/li[3]/a')).click();
+
+        expect(browser.getCurrentUrl()).toEqual('https://www.lego.com/es-es/cart');
+
+        const totalAmountLabel = element(by.xpath('//*[@id="main-content"]/div/div[1]/div[2]/div[1]/div/div[2]/div[1]/div[1]/div/div[3]/div[1]/span/span'));
+        browser.wait(until.presenceOf(totalAmountLabel), 5000);
+        expect(totalAmountLabel.getText()).toEqual('79,98 €');
     });
 })
