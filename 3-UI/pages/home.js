@@ -6,6 +6,12 @@ var HomePage = function() {
     const menuAgeButton = element(by.xpath('//*[@id="bltb9d6f2110f37ddd5"]/div/div[1]/button[3]'));
     const threeToFiveOption = element(by.xpath('//*[@id="bltb9d6f2110f37ddd5"]/div/div[2]/ul/li[2]/a/div/div/picture/img'));
 
+    const searchButton = element(by.xpath('//*[@id="root"]/div/div[2]/header/div/div[2]/div/div/button'));
+    const searchInput = element(by.xpath('//*[@id="desktop-search-search-input"]'));
+    
+    const searchSuggestion = element(by.xpath('//*[@id="desktop-search-search-suggestions"]/li[2]/a/div'));
+
+
     const until = protractor.ExpectedConditions;
     const timeoutInterval = 5000;
 
@@ -25,6 +31,15 @@ var HomePage = function() {
     this.filterBy3To5Years = function () {
         threeToFiveOption.click();
     }
+
+    this.search = function(searchTearm){
+        searchButton.click();
+        searchInput.sendKeys(searchTearm);
+        browser.wait(until.presenceOf(suggestion), timeoutInterval);
+        suggestion.click();
+    }
+
+
 }
 
 module.exports = new HomePage();
