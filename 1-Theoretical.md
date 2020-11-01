@@ -16,7 +16,7 @@ Please note that some tests are not detailed due to the pending answers from the
 
 ### Unit Tests
 1. Submitting with a valid landline phone shall not populate the `Errors` list.
-1. Submitting with the landline phone being the same as the mobile phone, an error shall be added to the `Errors`list.
+1. Submitting with the landline phone being the same as the mobile phone, an error shall be added to the `Errors` list.
 1. Submitting without the landline phone prefix shall add an error to the `Errors` list.
 
 ### Integration Tests
