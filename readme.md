@@ -14,7 +14,7 @@ The solution for this exersice is in the [1-Theoretical.md](1-Theoretical.md) fi
 
 ## API Tests
 The API tests can be found inside the `2-API` folder. They were done using Mocha and Chai.
-Please note that sometimes one a test might fail due to timeout from the API, and that I usually do it with C#, but it was fun learning it :)
+Please note that I usually do it with C#, but it was fun learning it :)
 
 In order to execute it, after following the steps mentioned in the Introduction, you can run the following command in your terminal:
 
