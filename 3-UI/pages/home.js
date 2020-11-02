@@ -37,7 +37,7 @@ var HomePage = function() {
     this.search = function(searchTearm) {
         searchButton.click();
         searchInput.sendKeys(searchTearm);
-        browser.wait(until.presenceOf(searchSuggestion), timeoutInterval);
+        browser.wait(until.elementToBeClickable(searchSuggestion), timeoutInterval);
         searchSuggestion.click();
     }
 
