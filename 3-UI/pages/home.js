@@ -1,4 +1,5 @@
 var HomePage = function() {
+    const heroBanner = element(by.xpath('//*[@id="blt29595461bddb41e7"]/section/div/div[1]/div[2]/div/div'));
     const continueButton = element(by.xpath('//*[@id="root"]/div/div[5]/div/div/div[1]/div[1]/div/button'));
     const acceptCookiesButton = element(by.xpath('//*[@id="root"]/div/div[3]/div/div[2]/button'));
 
@@ -16,9 +17,12 @@ var HomePage = function() {
     this.get = function() {
         browser.driver.get("https://www.lego.com/es-es");
         
-        browser.wait(until.presenceOf(continueButton), timeoutInterval);
-        if (continueButton) continueButton.click();
-        if (acceptCookiesButton) acceptCookiesButton.click();
+        waitForPageLoad();
+        
+        continueButton.isPresent().then(isPresent => {
+            if (isPresent) continueButton.click();
+            if (isPresent) acceptCookiesButton.click();
+        });
     }
 
     this.buyByAge = function() {
@@ -35,6 +39,10 @@ var HomePage = function() {
         searchInput.sendKeys(searchTearm);
         browser.wait(until.presenceOf(searchSuggestion), timeoutInterval);
         searchSuggestion.click();
+    }
+
+    function waitForPageLoad() {
+        browser.wait(until.presenceOf(heroBanner), timeoutInterval);
     }
 }
 

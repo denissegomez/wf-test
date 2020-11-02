@@ -6,7 +6,7 @@ const cartPage = require('./pages/cart');
 describe('Lego Site', function(){
 
     beforeEach(function() {
-        browser.ignoreSynchronization = true;
+        browser.waitForAngularEnabled(false);
         browser.driver.manage().window().maximize();
     });
 
